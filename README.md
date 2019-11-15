@@ -22,13 +22,15 @@ const ecodedUrl = signature.encode('https://example.com/posts?postId=15');
 
 console.log(ecodedUrl);
 // Output:
-// https://example.com/posts?es1_nonce=8rjcgf5ix8&es1_timestamp=1573827375&es1_method=sha256&es1_signature=OThjMTEwYWI0YTM5ZmQ1Yjg5NDZmMjg5MGFlM2EyOWU2NWM3YWI0MTg2OThmZTVmMjZmNjc3MjNmMGM4NzJjYQ%3D%3D
+// https://example.com/posts?postId=15&prfx_nonce=z4b35uan9&prfx_timestamp=1573832651&prfx_method=sha256&prfx_signature=MTk1ZGQyYzdlYmNlOGY3Nzk2NzM3YmRhYmU2MTZlNzczMDYyN2I1ZTMwOWI1YmMxM2E2ZGZjZjNkMWIyYWJhNQ%3D%3D
 ```
 
 #### Validate
 
 ```javascript
-signature.validate(ecodedUrl)
+signature.validate(ecodedUrl)  // --> true
+
+signature.validate('https://example.com/posts?postId=15') // --> false
 ```
 
 

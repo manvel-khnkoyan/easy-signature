@@ -91,7 +91,7 @@ EasySignature.prototype.encode = function encode(url) {
   /*
   * creating new object based on params.query
   */
-  const query = Object.create(params.query);
+  const query = { ...params.query };
 
   /*
   * Adding main required marameters
