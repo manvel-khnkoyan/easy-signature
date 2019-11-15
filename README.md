@@ -42,11 +42,26 @@ Default expired date is 15 minutes, but its a configurable:
 
 ```
 
+Detailed explanation:
+
+```
+// seting up expiredSeconds only 4 seconds
+const signature = new Signature({ secret: '#6h-_hey', expiredSeconds: 4, prefix: 'prfx_' });
+const ecodedUrl = signature.encode('https://example.com/posts?postId=15');
+
+console.log(signature.validate(ecodedUrl)); // -> true
+
+setTimeout(() => {
+  console.log(signature.validate(ecodedUrl)); // after 5 seconds -> false
+}, 5000);
+
+```
+
 Other parameters
 
 ```javascript
 
- 
+
 const signature = new Signature({
     /*
      * default secret is empty string
