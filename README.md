@@ -16,7 +16,7 @@ $ npm install easy-signature --save
 #### Encoding
 
 ```javascript
-const Signature = require('../index.js');
+const Signature = require('easy-signature');
 const signature = new Signature({ secret: 'some-secret-here' });
 const ecodedUrl = signature.encode('https://example.com/posts?postId=15');
 
@@ -60,8 +60,6 @@ setTimeout(() => {
 Other parameters
 
 ```javascript
-
-
 const signature = new Signature({
     /*
      * default secret is empty string
