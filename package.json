@@ -1,0 +1,30 @@
+{
+  "name": "easy-signature",
+  "version": "1.0.1",
+  "description": "Oauth signature encode and decode",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "author": "Manvel Khnkoyan",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "tap": "^14.9.2"
+  },
+  "keywords": [
+    "easy-signature",
+    "easy",
+    "signature",
+    "oauth",
+    "url",
+    "encode",
+    "validate"
+  ],
+  "bugs": {
+    "url": "https://github.com/manvel-khnkoyan/easy-signature/issues"
+  },
+  "homepage": "https://github.com/manvel-khnkoyan/easy-signature#readme"
+}
