@@ -26,5 +26,13 @@
   "bugs": {
     "url": "https://github.com/manvel-khnkoyan/easy-signature/issues"
   },
-  "homepage": "https://github.com/manvel-khnkoyan/easy-signature#readme"
+  "homepage": "https://github.com/manvel-khnkoyan/easy-signature#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://manvel-khnkoyan@github.com/manvel-khnkoyan/easy-signature.git"
+  }
 }
