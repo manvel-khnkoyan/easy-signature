@@ -54,9 +54,13 @@ EasySignature.prototype.generateSignature = function generateSignature(params) {
   /*
    * encoding using crypto module
    */
-  return crypto.createHmac(params.query[this.pfx('method')], this.config.secret)
-    .update(path)
-    .digest('hex');
+  try {
+    return crypto.createHmac(params.query[this.pfx('method')], this.config.secret)
+      .update(path)
+      .digest('hex');
+  } catch (e) {
+    return '';
+  }
 };
 
 /**
@@ -125,6 +129,21 @@ EasySignature.prototype.encode = function encode(url) {
 EasySignature.prototype.validate = function validate(url) {
   const params = this.parseUrl(url);
   const { query } = params;
+
+  /*
+  * Checking existence of required parameters
+  * */
+  if (!query[this.pfx('signature')] || !query[this.pfx('timestamp')] || !query[this.pfx('method')] || !query[this.pfx('nonce')]) {
+    return false;
+  }
+
+  /*
+   * Check is signature type is string
+   */
+  if (typeof query[this.pfx('signature')] !== 'string') {
+    return false;
+  }
+
 
   const signature = Buffer.from(query[this.pfx('signature')], 'base64').toString('ascii');
 
