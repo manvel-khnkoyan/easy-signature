@@ -54,13 +54,9 @@ EasySignature.prototype.generateSignature = function generateSignature(params) {
   /*
    * encoding using crypto module
    */
-  try {
-    return crypto.createHmac(params.query[this.pfx('method')], this.config.secret)
-      .update(path)
-      .digest('hex');
-  } catch (e) {
-    return '';
-  }
+  return crypto.createHmac(params.query[this.pfx('method')], this.config.secret)
+    .update(path)
+    .digest('hex');
 };
 
 /**
@@ -150,8 +146,11 @@ EasySignature.prototype.validate = function validate(url) {
   /*
    * Comparing given signature from query with generating new signature
    */
-
-  if (this.generateSignature(params) !== signature) {
+  try {
+    if (this.generateSignature(params) !== signature) {
+      return false;
+    }
+  } catch (e) {
     return false;
   }
 

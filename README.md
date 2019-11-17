@@ -17,6 +17,7 @@ $ npm install easy-signature --save
 
 ```javascript
 const Signature = require('easy-signature');
+
 const signature = new Signature({ secret: 'some-secret-here' });
 const ecodedUrl = signature.encode('https://example.com/posts?postId=15');
 
@@ -86,14 +87,14 @@ const signature = new Signature({
      * default is sha256
      * also could be md5, sha512, sha1 and so on, see https://nodejs.org/api/crypto.html
      */
-    method: 3600,
+    method: 'md5',
 
     /*
     * This parameters describing time oversight
     * This can be useful if you use different servers,
     * and the time may be slightly (adjusted using the parameter below) is different
     */
-    oversight: 3600
+    oversight: 12
 });
 
 ```
